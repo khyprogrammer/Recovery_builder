@@ -45,4 +45,16 @@ jobs:
          with:
           tag_name: ${{ github.run_id }}
           name: recovery image
-          files: work/recovery.zip
+          files: work/recovery.zip 
+
+          - name: Free Disk Space (The Deep Clean)
+      uses: jlumbroso/free-disk-space@main
+      with:
+        # this might remove tools you need, but for Android builds, we need the raw space
+        tool-cache: true
+        android: true
+        dotnet: true
+        haskell: true
+        large-packages: true
+        docker-images: true
+        swap-storage: true
