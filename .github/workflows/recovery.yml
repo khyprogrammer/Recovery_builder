@@ -58,3 +58,10 @@ jobs:
         large-packages: true
         docker-images: true
         swap-storage: true
+- name: Upload recovery image
+  if: always()
+  uses: actions/upload-artifact@v3
+  with:
+    name: recovery
+    path: out/target/product/a5/recovery.img
+    
